@@ -263,4 +263,18 @@ public class UtenteServiceImpl implements UtenteService {
 		}
 	}
 
+	public List<Utente> cercaTuttiQuelliConPasswordConMenoDiOttoCaratteri() throws Exception {
+		EntityManager entityManager = EntityManagerUtil.getEntityManager();
+
+		try {
+			utenteDAO.setEntityManager(entityManager);
+			return utenteDAO.findAllByPasswordConMenoDiOttoCaratteri();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			EntityManagerUtil.closeEntityManager(entityManager);
+		}
+	}
+
 }

@@ -51,7 +51,9 @@ public class ManyToManyTest {
 			
 //			testContaTuttiGliAdmin(utenteServiceInstance, ruoloServiceInstance);
 			
-			testCercaTutteLeDescrizioniDistinteConUtentiAssociati(utenteServiceInstance, ruoloServiceInstance);
+//			testCercaTutteLeDescrizioniDistinteConUtentiAssociati(utenteServiceInstance, ruoloServiceInstance);
+			
+			testCercaTuttiQuelliConPasswordConMenoDiOttoCaratteri(utenteServiceInstance);
 
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -215,13 +217,22 @@ public class ManyToManyTest {
 //		System.out.println("Fine testContaTuttiGliAdmin!");
 //	}
 	
-	private static void testCercaTutteLeDescrizioniDistinteConUtentiAssociati(UtenteService utenteService, RuoloService ruoloService) throws Exception {
-		System.out.println("Inizio testCercaTutteLeDescrizioniDistinteConUtentiAssociati");
-		List<Ruolo> elencoRuoliPresenti = ruoloService.listAll();
-		if(elencoRuoliPresenti.isEmpty())
-			throw new RuntimeException("testCercaTutteLeDescrizioniDistinteConUtentiAssociati fallito: non ci sono ruoli a cui collegarci!");
-		System.out.println(ruoloService.cercaTutteLeDescrizioniDistinteConUtentiAssociati());
-		System.out.println("Fine testCercaTutteLeDescrizioniDistinteConUtentiAssociati!");
-	}	
+//	private static void testCercaTutteLeDescrizioniDistinteConUtentiAssociati(UtenteService utenteService, RuoloService ruoloService) throws Exception {
+//		System.out.println("Inizio testCercaTutteLeDescrizioniDistinteConUtentiAssociati");
+//		List<Ruolo> elencoRuoliPresenti = ruoloService.listAll();
+//		if(elencoRuoliPresenti.isEmpty())
+//			throw new RuntimeException("testCercaTutteLeDescrizioniDistinteConUtentiAssociati fallito: non ci sono ruoli a cui collegarci!");
+//		System.out.println(ruoloService.cercaTutteLeDescrizioniDistinteConUtentiAssociati());
+//		System.out.println("Fine testCercaTutteLeDescrizioniDistinteConUtentiAssociati!");
+//	}	
+	
+	private static void testCercaTuttiQuelliConPasswordConMenoDiOttoCaratteri(UtenteService utenteService) throws Exception {
+		System.out.println("Inizio testCercaTuttiQuelliConPasswordConMenoDiOttoCaratteri");
+		List<Utente> elencoUtentiPresenti = utenteService.listAll();
+		if(elencoUtentiPresenti.isEmpty())
+			throw new RuntimeException("testCercaTuttiQuelliConPasswordConMenoDiOttoCaratteri fallito : non ci sono utenti a cui collegarci!");
+		System.out.println(utenteService.cercaTuttiQuelliConPasswordConMenoDiOttoCaratteri());
+		System.out.println("Fine testCercaTuttiQuelliConPasswordConMenoDiOttoCaratteri!");
+	}
 
 }

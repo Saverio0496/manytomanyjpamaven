@@ -78,4 +78,9 @@ public class UtenteDAOImpl implements UtenteDAO {
 		return query.getSingleResult();
 	}
 
+	public List<Utente> findAllByPasswordConMenoDiOttoCaratteri() {
+		TypedQuery<Utente> query = entityManager.createQuery("select u FROM Utente u where u.password not like '_______%' ",Utente.class);
+		return query.getResultList();
+	}
+
 }

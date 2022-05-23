@@ -28,6 +28,8 @@ public interface UtenteService {
 	public List<Utente> cercaTuttiQuelliCreatiAGiugno() throws Exception;
 	
 	public Long contaTuttiGliAdmin() throws Exception;
+	
+	public List<Utente> cercaTuttiQuelliConPasswordConMenoDiOttoCaratteri() throws Exception;
 
 	// per injection
 	public void setUtenteDAO(UtenteDAO utenteDAO);

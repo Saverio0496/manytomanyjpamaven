@@ -11,5 +11,7 @@ public interface UtenteDAO extends IBaseDAO<Utente> {
 	public Utente findByIdFetchingRuoli(Long id);
 	public List<Utente> findAllCreateAtJune();
 	public Long countAdmin();
+	public List<Utente> findAllByPasswordConMenoDiOttoCaratteri();
+	
 
 }
