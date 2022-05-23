@@ -45,7 +45,9 @@ public class ManyToManyTest {
 //			
 //			testRimuoviUtente(ruoloServiceInstance, utenteServiceInstance);
 
-			testCercaTuttiQuelliCreatiAGiugno(utenteServiceInstance);
+//			testCercaTuttiQuelliCreatiAGiugno(utenteServiceInstance);
+			
+			testContaTuttiGliAdmin(utenteServiceInstance, ruoloServiceInstance);
 
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -188,15 +190,25 @@ public class ManyToManyTest {
 //		utenteService.rimuovi(2L);
 //		System.out.println("Fine testRimuoviRuolo!");
 //	}
+//
+//	private static void testCercaTuttiQuelliCreatiAGiugno(UtenteService utenteService) throws Exception {
+//		System.out.println("Inizio testCercaTuttiQUelliCreatiAGiugno");
+//		List<Utente> elencoUtentiPresenti = utenteService.listAll();
+//		if (elencoUtentiPresenti.isEmpty())
+//			throw new RuntimeException(
+//					"testCercaTuttQuelliCreatiAGiugno fallito: non ci sono utenti a cui collegarci!");
+//		System.out.println(utenteService.cercaTuttiQuelliCreatiAGiugno());
+//		System.out.println("Fine testCercaTuttiQUelliCreatiAGiugno!");
+//	}
 
-	private static void testCercaTuttiQuelliCreatiAGiugno(UtenteService utenteService) throws Exception {
-		System.out.println("Inizio testCercaTuttiQUelliCreatiAGiugno");
+	private static void testContaTuttiGliAdmin(UtenteService utenteService, RuoloService ruoloService)
+			throws Exception {
+		System.out.println("Inizio testContaTuttiGliAdmin");
 		List<Utente> elencoUtentiPresenti = utenteService.listAll();
 		if (elencoUtentiPresenti.isEmpty())
-			throw new RuntimeException(
-					"testCercaTuttQuelliCreatiAGiugno fallito: non ci sono utenti a cui collegarci!");
-		System.out.println(utenteService.cercaTuttiQuelliCreatiAGiugno());
-		System.out.println("Fine testCercaTuttiQUelliCreatiAGiugno!");
+			throw new RuntimeException("testContaTuttiGliAdmin fallito: non ci sono utenti a cui collegarci!");
+		System.out.println(utenteService.contaTuttiGliAdmin());
+		System.out.println("Fine testContaTuttiGliAdmin!");
 	}
 
 }

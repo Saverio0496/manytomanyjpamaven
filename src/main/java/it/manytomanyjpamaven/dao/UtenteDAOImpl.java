@@ -72,5 +72,10 @@ public class UtenteDAOImpl implements UtenteDAO {
 		TypedQuery<Utente> query = entityManager.createQuery("select u FROM Utente u where u.dateCreated < '2021-07-01' and u.dateCreated > '2021-06-01' ",Utente.class);
 		return query.getResultList();
 	}
+	
+	public Long countAdmin() {
+		TypedQuery<Long> query = entityManager.createQuery("select count (u) FROM Utente u join u.ruoli r where r.id =1 ",Long.class);
+		return query.getSingleResult();
+	}
 
 }

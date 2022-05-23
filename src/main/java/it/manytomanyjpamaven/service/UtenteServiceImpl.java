@@ -249,4 +249,18 @@ public class UtenteServiceImpl implements UtenteService {
 		}
 	}
 
+	public Long contaTuttiGliAdmin() throws Exception {
+		EntityManager entityManager = EntityManagerUtil.getEntityManager();
+
+		try {
+			utenteDAO.setEntityManager(entityManager);
+			return utenteDAO.countAdmin();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			EntityManagerUtil.closeEntityManager(entityManager);
+		}
+	}
+
 }
