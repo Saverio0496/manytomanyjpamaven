@@ -136,4 +136,19 @@ public class RuoloServiceImpl implements RuoloService {
 		}
 	}
 
+	public List<String> cercaTutteLeDescrizioniDistinteConUtentiAssociati() throws Exception {
+		EntityManager entityManager = EntityManagerUtil.getEntityManager();
+
+		try {
+			ruoloDAO.setEntityManager(entityManager);
+			return ruoloDAO.findDescrizioniDistinteConUtentiAssociati();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			EntityManagerUtil.closeEntityManager(entityManager);
+		}
+	}
+
 }
