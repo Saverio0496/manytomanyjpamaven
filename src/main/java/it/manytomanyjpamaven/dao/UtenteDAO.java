@@ -12,6 +12,5 @@ public interface UtenteDAO extends IBaseDAO<Utente> {
 	public List<Utente> findAllCreateAtJune();
 	public Long countAdmin();
 	public List<Utente> findAllByPasswordConMenoDiOttoCaratteri();
-	
-
+	public Long countAdminDisabilitati();
 }

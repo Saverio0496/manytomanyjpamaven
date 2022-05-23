@@ -277,4 +277,20 @@ public class UtenteServiceImpl implements UtenteService {
 		}
 	}
 
+	public boolean vediSeCeAlmenoUnAdminDisabilitato() throws Exception {
+		EntityManager entityManager = EntityManagerUtil.getEntityManager();
+
+		try {
+			utenteDAO.setEntityManager(entityManager);
+			if(utenteDAO.countAdminDisabilitati() < 1)
+				return false;
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			EntityManagerUtil.closeEntityManager(entityManager);
+		}
+	}
+
 }

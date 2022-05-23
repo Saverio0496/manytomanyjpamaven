@@ -48,12 +48,14 @@ public class ManyToManyTest {
 //			testRimuoviUtente(ruoloServiceInstance, utenteServiceInstance);
 
 //			testCercaTuttiQuelliCreatiAGiugno(utenteServiceInstance);
-			
+
 //			testContaTuttiGliAdmin(utenteServiceInstance, ruoloServiceInstance);
-			
+
 //			testCercaTutteLeDescrizioniDistinteConUtentiAssociati(utenteServiceInstance, ruoloServiceInstance);
+
+//			testCercaTuttiQuelliConPasswordConMenoDiOttoCaratteri(utenteServiceInstance);
 			
-			testCercaTuttiQuelliConPasswordConMenoDiOttoCaratteri(utenteServiceInstance);
+			testVediSeCeAlmenoUnAdminDisabilitato(utenteServiceInstance);
 
 		} catch (Throwable e) {
 			e.printStackTrace();
@@ -216,7 +218,7 @@ public class ManyToManyTest {
 //		System.out.println(utenteService.contaTuttiGliAdmin());
 //		System.out.println("Fine testContaTuttiGliAdmin!");
 //	}
-	
+
 //	private static void testCercaTutteLeDescrizioniDistinteConUtentiAssociati(UtenteService utenteService, RuoloService ruoloService) throws Exception {
 //		System.out.println("Inizio testCercaTutteLeDescrizioniDistinteConUtentiAssociati");
 //		List<Ruolo> elencoRuoliPresenti = ruoloService.listAll();
@@ -225,14 +227,28 @@ public class ManyToManyTest {
 //		System.out.println(ruoloService.cercaTutteLeDescrizioniDistinteConUtentiAssociati());
 //		System.out.println("Fine testCercaTutteLeDescrizioniDistinteConUtentiAssociati!");
 //	}	
-	
-	private static void testCercaTuttiQuelliConPasswordConMenoDiOttoCaratteri(UtenteService utenteService) throws Exception {
-		System.out.println("Inizio testCercaTuttiQuelliConPasswordConMenoDiOttoCaratteri");
+
+//	private static void testCercaTuttiQuelliConPasswordConMenoDiOttoCaratteri(UtenteService utenteService) throws Exception {
+//		System.out.println("Inizio testCercaTuttiQuelliConPasswordConMenoDiOttoCaratteri");
+//		List<Utente> elencoUtentiPresenti = utenteService.listAll();
+//		if(elencoUtentiPresenti.isEmpty())
+//			throw new RuntimeException("testCercaTuttiQuelliConPasswordConMenoDiOttoCaratteri fallito : non ci sono utenti a cui collegarci!");
+//		System.out.println(utenteService.cercaTuttiQuelliConPasswordConMenoDiOttoCaratteri());
+//		System.out.println("Fine testCercaTuttiQuelliConPasswordConMenoDiOttoCaratteri!");
+//	}
+
+	private static void testVediSeCeAlmenoUnAdminDisabilitato(UtenteService utenteService) throws Exception {
+		System.out.println("Inizio testVediSeCeAlmenoAlmenoUnAdminDisabilitato");
 		List<Utente> elencoUtentiPresenti = utenteService.listAll();
-		if(elencoUtentiPresenti.isEmpty())
-			throw new RuntimeException("testCercaTuttiQuelliConPasswordConMenoDiOttoCaratteri fallito : non ci sono utenti a cui collegarci!");
-		System.out.println(utenteService.cercaTuttiQuelliConPasswordConMenoDiOttoCaratteri());
-		System.out.println("Fine testCercaTuttiQuelliConPasswordConMenoDiOttoCaratteri!");
+		if (elencoUtentiPresenti.isEmpty())
+			throw new RuntimeException(
+					"testVediSeCeAlmenoAlmenoUnAdminDisabilitato fallito : non ci sono utenti a cui collegarci!");
+		if (!utenteService.vediSeCeAlmenoUnAdminDisabilitato()) {
+			System.out.println("Non c'e' almeno un admin DISABILITATO!");
+		}else {
+			System.out.println("C'e almeno un admin DISABILITATO!");
+		}
+		System.out.println("Fine testVediSeCeAlmenoUnAdminDisabilitato!");
 	}
 
 }
