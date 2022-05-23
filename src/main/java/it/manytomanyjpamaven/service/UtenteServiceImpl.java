@@ -235,4 +235,18 @@ public class UtenteServiceImpl implements UtenteService {
 
 	}
 
+	public List<Utente> cercaTuttiQuelliCreatiAGiugno() throws Exception {
+		EntityManager entityManager = EntityManagerUtil.getEntityManager();
+
+		try {
+			utenteDAO.setEntityManager(entityManager);
+			return utenteDAO.findAllCreateAtJune();
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			EntityManagerUtil.closeEntityManager(entityManager);
+		}
+	}
+
 }
